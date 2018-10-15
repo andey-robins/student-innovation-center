@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class ExploreActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
@@ -19,10 +19,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_explore:
-                    mTextMessage.setText(R.string.title_explore);
-
-                    Intent clickExplore = new Intent(MainActivity.this, ExploreActivity.class);
-                    MainActivity.this.startActivity(clickExplore);
+                    mTextMessage.setText("Already in " + R.string.title_explore);
 
                     return true;
                 case R.id.navigation_training:
@@ -39,11 +36,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_explore);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
-
 }
